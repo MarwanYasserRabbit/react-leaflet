@@ -4,19 +4,19 @@ import {
   createLayerComponent,
   extendContext,
   updateMediaOverlay,
-} from '@react-leaflet/core'
+} from "marwan-yasser-react-leaflet-core";
 import {
   VideoOverlay as LeafletVideoOverlay,
   type VideoOverlayOptions,
-} from 'leaflet'
-import type { ReactNode } from 'react'
+} from "leaflet";
+import type { ReactNode } from "react";
 
 export interface VideoOverlayProps
   extends MediaOverlayProps,
     VideoOverlayOptions {
-  children?: ReactNode
-  play?: boolean
-  url: string | string[] | HTMLVideoElement
+  children?: ReactNode;
+  play?: boolean;
+  url: string | string[] | HTMLVideoElement;
 }
 
 export const VideoOverlay = createLayerComponent<
@@ -24,29 +24,32 @@ export const VideoOverlay = createLayerComponent<
   VideoOverlayProps
 >(
   function createVideoOverlay({ bounds, url, ...options }, ctx) {
-    const overlay = new LeafletVideoOverlay(url, bounds, options)
-    if (options.play === true) {
-      overlay.getElement()?.play()
+    const overlay = new LeafletVideoOverlay(url, bounds, options);
+    if (overlay && options.play === true) {
+      const element = overlay.getElement && overlay.getElement();
+      if (element && typeof element.play === "function") {
+        element.play();
+      }
     }
     return createElementObject(
       overlay,
-      extendContext(ctx, { overlayContainer: overlay }),
-    )
+      extendContext(ctx, { overlayContainer: overlay })
+    );
   },
   function updateVideoOverlay(overlay, props, prevProps) {
-    updateMediaOverlay(overlay, props, prevProps)
+    updateMediaOverlay(overlay, props, prevProps);
 
-    if (typeof props.url === 'string' && props.url !== prevProps.url) {
-      overlay.setUrl(props.url)
+    if (typeof props.url === "string" && props.url !== prevProps.url) {
+      overlay.setUrl(props.url);
     }
 
-    const video = overlay.getElement()
+    const video = overlay.getElement();
     if (video != null) {
       if (props.play === true && !prevProps.play) {
-        video.play()
+        video.play();
       } else if (!props.play && prevProps.play === true) {
-        video.pause()
+        video.pause();
       }
     }
-  },
-)
+  }
+);

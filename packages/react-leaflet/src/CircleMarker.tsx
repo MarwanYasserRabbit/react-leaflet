@@ -4,10 +4,10 @@ import {
   createPathComponent,
   extendContext,
   updateCircle,
-} from '@react-leaflet/core'
+} from 'marwan-yasser-react-leaflet-core'
 import { CircleMarker as LeafletCircleMarker } from 'leaflet'
 
-export type { CircleMarkerProps } from '@react-leaflet/core'
+export type { CircleMarkerProps } from 'marwan-yasser-react-leaflet-core'
 
 export const CircleMarker = createPathComponent<
   LeafletCircleMarker,

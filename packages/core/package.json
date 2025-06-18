@@ -1,5 +1,5 @@
 {
-  "name": "@react-leaflet/core",
+  "name": "marwan-yasser-react-leaflet-core",
   "version": "2.1.0",
   "description": "React Leaflet core",
   "repository": {
@@ -29,7 +29,7 @@
   ],
   "sideEffects": false,
   "scripts": {
-    "build:clean": "del lib",
+    "build:clean": "del /q /s lib",
     "build:js": "swc src -d ./lib --config-file  ../../.swcrc",
     "build:types": "tsc --emitDeclarationOnly",
     "build": "pnpm run build:clean && pnpm run build:types && pnpm run build:js",

@@ -4,7 +4,7 @@ import {
   createLayerComponent,
   extendContext,
   updateMediaOverlay,
-} from '@react-leaflet/core'
+} from 'marwan-yasser-react-leaflet-core'
 import { LatLngBounds, ImageOverlay as LeafletImageOverlay } from 'leaflet'
 import type { ReactNode } from 'react'
 

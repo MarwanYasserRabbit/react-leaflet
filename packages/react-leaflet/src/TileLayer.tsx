@@ -4,7 +4,7 @@ import {
   createTileLayerComponent,
   updateGridLayer,
   withPane,
-} from '@react-leaflet/core'
+} from 'marwan-yasser-react-leaflet-core'
 import { TileLayer as LeafletTileLayer, type TileLayerOptions } from 'leaflet'
 
 export interface TileLayerProps extends TileLayerOptions, LayerProps {

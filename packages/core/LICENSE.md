@@ -1,4 +1,4 @@
-@react-leaflet/core Copyright 2020 Paul Le Cam and contributors (“Licensor”)
+marwan-yasser-react-leaflet-core Copyright 2020 Paul Le Cam and contributors (“Licensor”)
 
 Hippocratic License Version Number: 2.1.
 

@@ -1,5 +1,5 @@
 {
-  "name": "react-leaflet",
+  "name": "marwan-yasser-react-leaflet",
   "version": "4.2.0",
   "description": "React components for Leaflet maps",
   "repository": {
@@ -30,7 +30,7 @@
   ],
   "sideEffects": false,
   "scripts": {
-    "build:clean": "del lib",
+    "build:clean": "del /q /s lib",
     "build:js": "swc src -d ./lib --config-file ../../.swcrc",
     "build:types": "tsc --emitDeclarationOnly",
     "build": "pnpm run build:clean && pnpm run build:types && pnpm run build:js",
@@ -42,7 +42,7 @@
     "prepublishOnly": "package-check"
   },
   "dependencies": {
-    "@react-leaflet/core": "workspace:^2.1.0"
+    "marwan-yasser-react-leaflet-core": "workspace:^2.1.0"
   },
   "peerDependencies": {
     "leaflet": "^1.9.0",

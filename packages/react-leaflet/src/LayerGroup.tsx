@@ -3,7 +3,7 @@ import {
   createElementObject,
   createLayerComponent,
   extendContext,
-} from '@react-leaflet/core'
+} from 'marwan-yasser-react-leaflet-core'
 import { LayerGroup as LeafletLayerGroup, type LayerOptions } from 'leaflet'
 import type { ReactNode } from 'react'
 

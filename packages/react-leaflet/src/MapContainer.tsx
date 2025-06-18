@@ -2,7 +2,7 @@ import {
   LeafletProvider,
   type LeafletContextInterface,
   createLeafletContext,
-} from '@react-leaflet/core'
+} from 'marwan-yasser-react-leaflet-core'
 import {
   type FitBoundsOptions,
   type LatLngBoundsExpression,
@@ -51,7 +51,7 @@ function MapContainerComponent<
 ) {
   const [props] = useState({ className, id, style })
   const [context, setContext] = useState<LeafletContextInterface | null>(null)
-  useImperativeHandle(forwardedRef, () => context?.map ?? null, [context])
+  useImperativeHandle(forwardedRef, () => context ? context.map : null, [context])
 
   const mapRef = useCallback((node: HTMLDivElement | null) => {
     if (node !== null && context === null) {
@@ -71,14 +71,16 @@ function MapContainerComponent<
 
   useEffect(() => {
     return () => {
-      context?.map.remove()
+      if (context) {
+        context.map.remove()
+      }
     }
   }, [context])
 
   const contents = context ? (
     <LeafletProvider value={context}>{children}</LeafletProvider>
   ) : (
-    placeholder ?? null
+    placeholder || null
   )
   return (
     <div {...props} ref={mapRef}>

@@ -3,7 +3,7 @@ import {
   createElementObject,
   createPathComponent,
   extendContext,
-} from '@react-leaflet/core'
+} from 'marwan-yasser-react-leaflet-core'
 import { FeatureGroup as LeafletFeatureGroup } from 'leaflet'
 
 import type { LayerGroupProps } from './LayerGroup.js'

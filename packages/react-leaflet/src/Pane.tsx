@@ -3,7 +3,7 @@ import {
   LeafletProvider,
   addClassName,
   useLeafletContext,
-} from '@react-leaflet/core'
+} from 'marwan-yasser-react-leaflet-core'
 import React, {
   type CSSProperties,
   type ReactNode,
@@ -53,7 +53,7 @@ function createPane(
     throw new Error(`A pane with this name already exists: ${name}`)
   }
 
-  const parentPaneName = props.pane ?? context.pane
+  const parentPaneName = props.pane || context.pane
   const parentPane = parentPaneName
     ? context.map.getPane(parentPaneName)
     : undefined
@@ -88,7 +88,9 @@ function PaneComponent(
 
     return function removeCreatedPane() {
       const pane = context.map.getPane(paneName)
-      pane?.remove?.()
+      if (pane && pane.remove) {
+        pane.remove()
+      }
 
       // @ts-ignore map internals
       if (context.map._panes != null) {

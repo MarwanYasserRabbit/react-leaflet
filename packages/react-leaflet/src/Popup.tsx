@@ -5,7 +5,7 @@ import {
   type SetOpenFunc,
   createElementObject,
   createOverlayComponent,
-} from '@react-leaflet/core'
+} from 'marwan-yasser-react-leaflet-core'
 import {
   type LatLngExpression,
   Popup as LeafletPopup,
@@ -68,7 +68,9 @@ export const Popup = createOverlayComponent<LeafletPopup, PopupProps>(
             popupopen: onPopupOpen,
             popupclose: onPopupClose,
           })
-          context.overlayContainer?.unbindPopup()
+          if (context.overlayContainer) {
+            context.overlayContainer.unbindPopup()
+          }
           context.map.removeLayer(instance)
         }
       },

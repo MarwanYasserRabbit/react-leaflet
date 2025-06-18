@@ -3,7 +3,7 @@ import {
   createElementObject,
   createPathComponent,
   extendContext,
-} from '@react-leaflet/core'
+} from 'marwan-yasser-react-leaflet-core'
 import {
   type LatLngBoundsExpression,
   Rectangle as LeafletRectangle,

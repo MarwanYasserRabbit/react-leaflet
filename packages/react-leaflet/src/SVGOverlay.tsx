@@ -4,7 +4,7 @@ import {
   createElementObject,
   createLayerHook,
   updateMediaOverlay,
-} from '@react-leaflet/core'
+} from 'marwan-yasser-react-leaflet-core'
 import { SVGOverlay as LeafletSVGOverlay } from 'leaflet'
 import {
   type ReactNode,

@@ -5,7 +5,7 @@ import {
   type SetOpenFunc,
   createElementObject,
   createOverlayComponent,
-} from '@react-leaflet/core'
+} from 'marwan-yasser-react-leaflet-core'
 import {
   type LatLngExpression,
   Tooltip as LeafletTooltip,

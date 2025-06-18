@@ -4,7 +4,7 @@ import {
   createTileLayerComponent,
   updateGridLayer,
   withPane,
-} from '@react-leaflet/core'
+} from 'marwan-yasser-react-leaflet-core'
 import { TileLayer, type WMSOptions, type WMSParams } from 'leaflet'
 
 export interface WMSTileLayerProps extends WMSOptions, LayerProps {

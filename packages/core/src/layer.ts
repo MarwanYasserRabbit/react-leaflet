@@ -18,11 +18,13 @@ export function useLayerLifecycle(
 ) {
   useEffect(
     function addLayer() {
-      const container = context.layerContainer ?? context.map
+      const container = context.layerContainer || context.map
       container.addLayer(element.instance)
 
       return function removeLayer() {
-        context.layerContainer?.removeLayer(element.instance)
+        if (context.layerContainer) {
+          context.layerContainer.removeLayer(element.instance)
+        }
         context.map.removeLayer(element.instance)
       }
     },

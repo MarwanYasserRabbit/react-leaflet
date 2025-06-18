@@ -6,7 +6,7 @@ import {
   createElementObject,
   extendContext,
   useLeafletContext,
-} from '@react-leaflet/core'
+} from 'marwan-yasser-react-leaflet-core'
 import { Control, type Layer } from 'leaflet'
 import React, {
   type ForwardRefExoticComponent,
@@ -89,7 +89,9 @@ export function createControlledLayer(addLayerToControl: AddLayerFunc) {
     )
     const removeLayer = useCallback(
       (layerToRemove: Layer) => {
-        layersControl?.removeLayer(layerToRemove)
+        if (layersControl) {
+          layersControl.removeLayer(layerToRemove)
+        }
         setLayer(null)
       },
       [layersControl],
